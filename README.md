@@ -2,11 +2,22 @@
 
 A collection of practical, self-directed analytics projects demonstrating MIS reporting, data preparation, KPI analysis, and visualization.
 
+## 🚀 Featured Live Project
+
+### Healthcare MIS Reporting & Performance Dashboard
+
+**[👉 Open the Interactive Live Dashboard](https://ankush2512.github.io/data-analytics-portfolio/01-healthcare-mis/dashboard/)**
+
+Explore an interactive dashboard with case-status KPIs, approval rate, pending-case ageing, monthly trends, department performance, and department/scheme filters. The dashboard uses a fictional synthetic dataset created for portfolio demonstration.
+
+[View the project source and documentation](01-healthcare-mis/README.md).
+
 ## Projects
 
 ### 01. Healthcare MIS Reporting & Performance Analysis
 A synthetic healthcare operations dataset and Python-based reporting workflow covering case status, claim values, department performance, monthly trends, and pending-case ageing.
 
+- [Live interactive dashboard](https://ankush2512.github.io/data-analytics-portfolio/01-healthcare-mis/dashboard/)
 - [Project documentation](01-healthcare-mis/README.md)
 - [Synthetic dataset](01-healthcare-mis/dataset/healthcare_cases_synthetic.csv)
 - [Python report generator](01-healthcare-mis/scripts/build_healthcare_mis.py)
