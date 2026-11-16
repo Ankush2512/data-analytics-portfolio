@@ -1,0 +1,73 @@
+case_id,admission_date,department,scheme,case_status,claim_amount_inr,days_in_process,query_raised
+SYN-0001,2026-01-08,General Medicine,PM-JAY,Approved,19919,12,No
+SYN-0002,2026-01-15,Cardiology,State Health Scheme,Query Raised,27838,23,Yes
+SYN-0003,2026-01-22,General Medicine,PM-JAY,Rejected,35757,6,No
+SYN-0004,2026-01-03,Cardiology,State Health Scheme,Rejected,43676,17,No
+SYN-0005,2026-01-10,General Medicine,PM-JAY,Pending,51595,28,No
+SYN-0006,2026-01-17,Cardiology,State Health Scheme,Approved,59514,11,No
+SYN-0007,2026-01-24,General Medicine,PM-JAY,Approved,67433,22,No
+SYN-0008,2026-01-05,Cardiology,State Health Scheme,Approved,75352,5,No
+SYN-0009,2026-01-12,General Medicine,PM-JAY,Approved,83271,16,No
+SYN-0010,2026-01-19,Cardiology,State Health Scheme,Query Raised,91190,27,Yes
+SYN-0011,2026-01-26,General Medicine,PM-JAY,Rejected,99109,10,No
+SYN-0012,2026-01-07,Cardiology,State Health Scheme,Rejected,19028,21,No
+SYN-0013,2026-02-14,General Medicine,PM-JAY,Pending,26947,4,No
+SYN-0014,2026-02-21,Cardiology,State Health Scheme,Approved,34866,15,No
+SYN-0015,2026-02-02,General Medicine,PM-JAY,Approved,42785,26,No
+SYN-0016,2026-02-09,Cardiology,State Health Scheme,Approved,50704,9,No
+SYN-0017,2026-02-16,General Medicine,PM-JAY,Approved,58623,20,No
+SYN-0018,2026-02-23,Cardiology,State Health Scheme,Query Raised,66542,3,Yes
+SYN-0019,2026-02-04,General Medicine,PM-JAY,Rejected,74461,14,No
+SYN-0020,2026-02-11,Cardiology,State Health Scheme,Rejected,82380,25,No
+SYN-0021,2026-02-18,General Medicine,PM-JAY,Pending,90299,8,No
+SYN-0022,2026-02-25,Cardiology,State Health Scheme,Approved,98218,19,No
+SYN-0023,2026-02-06,General Medicine,PM-JAY,Approved,18137,2,No
+SYN-0024,2026-02-13,Cardiology,State Health Scheme,Approved,26056,13,No
+SYN-0025,2026-03-20,General Medicine,PM-JAY,Approved,33975,24,No
+SYN-0026,2026-03-01,Cardiology,State Health Scheme,Query Raised,41894,7,Yes
+SYN-0027,2026-03-08,General Medicine,PM-JAY,Rejected,49813,18,No
+SYN-0028,2026-03-15,Cardiology,State Health Scheme,Rejected,57732,1,No
+SYN-0029,2026-03-22,General Medicine,PM-JAY,Pending,65651,12,No
+SYN-0030,2026-03-03,Cardiology,State Health Scheme,Approved,73570,23,No
+SYN-0031,2026-03-10,General Medicine,PM-JAY,Approved,81489,6,No
+SYN-0032,2026-03-17,Cardiology,State Health Scheme,Approved,89408,17,No
+SYN-0033,2026-03-24,General Medicine,PM-JAY,Approved,97327,28,No
+SYN-0034,2026-03-05,Cardiology,State Health Scheme,Query Raised,17246,11,Yes
+SYN-0035,2026-03-12,General Medicine,PM-JAY,Rejected,25165,22,No
+SYN-0036,2026-03-19,Cardiology,State Health Scheme,Rejected,33084,5,No
+SYN-0037,2026-04-26,General Medicine,PM-JAY,Pending,41003,16,No
+SYN-0038,2026-04-07,Cardiology,State Health Scheme,Approved,48922,27,No
+SYN-0039,2026-04-14,General Medicine,PM-JAY,Approved,56841,10,No
+SYN-0040,2026-04-21,Cardiology,State Health Scheme,Approved,64760,21,No
+SYN-0041,2026-04-02,General Medicine,PM-JAY,Approved,72679,4,No
+SYN-0042,2026-04-09,Cardiology,State Health Scheme,Query Raised,80598,15,Yes
+SYN-0043,2026-04-16,General Medicine,PM-JAY,Rejected,88517,26,No
+SYN-0044,2026-04-23,Cardiology,State Health Scheme,Rejected,96436,9,No
+SYN-0045,2026-04-04,General Medicine,PM-JAY,Pending,16355,20,No
+SYN-0046,2026-04-11,Cardiology,State Health Scheme,Approved,24274,3,No
+SYN-0047,2026-04-18,General Medicine,PM-JAY,Approved,32193,14,No
+SYN-0048,2026-04-25,Cardiology,State Health Scheme,Approved,40112,25,No
+SYN-0049,2026-05-06,General Medicine,PM-JAY,Approved,48031,8,No
+SYN-0050,2026-05-13,Cardiology,State Health Scheme,Query Raised,55950,19,Yes
+SYN-0051,2026-05-20,General Medicine,PM-JAY,Rejected,63869,2,No
+SYN-0052,2026-05-01,Cardiology,State Health Scheme,Rejected,71788,13,No
+SYN-0053,2026-05-08,General Medicine,PM-JAY,Pending,79707,24,No
+SYN-0054,2026-05-15,Cardiology,State Health Scheme,Approved,87626,7,No
+SYN-0055,2026-05-22,General Medicine,PM-JAY,Approved,95545,18,No
+SYN-0056,2026-05-03,Cardiology,State Health Scheme,Approved,15464,1,No
+SYN-0057,2026-05-10,General Medicine,PM-JAY,Approved,23383,12,No
+SYN-0058,2026-05-17,Cardiology,State Health Scheme,Query Raised,31302,23,Yes
+SYN-0059,2026-05-24,General Medicine,PM-JAY,Rejected,39221,6,No
+SYN-0060,2026-05-05,Cardiology,State Health Scheme,Rejected,47140,17,No
+SYN-0061,2026-06-12,General Medicine,PM-JAY,Pending,55059,28,No
+SYN-0062,2026-06-19,Cardiology,State Health Scheme,Approved,62978,11,No
+SYN-0063,2026-06-26,General Medicine,PM-JAY,Approved,70897,22,No
+SYN-0064,2026-06-07,Cardiology,State Health Scheme,Approved,78816,5,No
+SYN-0065,2026-06-14,General Medicine,PM-JAY,Approved,86735,16,No
+SYN-0066,2026-06-21,Cardiology,State Health Scheme,Query Raised,94654,27,Yes
+SYN-0067,2026-06-02,General Medicine,PM-JAY,Rejected,14573,10,No
+SYN-0068,2026-06-09,Cardiology,State Health Scheme,Rejected,22492,21,No
+SYN-0069,2026-06-16,General Medicine,PM-JAY,Pending,30411,4,No
+SYN-0070,2026-06-23,Cardiology,State Health Scheme,Approved,38330,15,No
+SYN-0071,2026-06-04,General Medicine,PM-JAY,Approved,46249,26,No
+SYN-0072,2026-06-11,Cardiology,State Health Scheme,Approved,54168,9,No
