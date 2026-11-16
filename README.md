@@ -11,13 +11,26 @@ A synthetic healthcare operations dataset and Python-based reporting workflow co
 - [Synthetic dataset](01-healthcare-mis/dataset/healthcare_cases_synthetic.csv)
 - [Python report generator](01-healthcare-mis/scripts/build_healthcare_mis.py)
 
-More projects will be added as they are completed.
+### 02. Sales Funnel & Conversion Analysis
+A fictional sales-lead pipeline used to practise funnel KPIs, lead-to-order conversion, lost-lead analysis, and channel/region comparisons. This is a learning project, not a claim of professional sales experience.
+
+- [Project documentation](02-sales-funnel/README.md)
+- [Synthetic leads dataset](02-sales-funnel/dataset/sales_leads_synthetic.csv)
+- [Python analysis script](02-sales-funnel/scripts/analyze_sales_funnel.py)
+
+### 03. Python Data Cleaning & Exploratory Data Analysis
+A synthetic healthcare operations dataset with intentionally introduced missing values and duplicate rows. Includes a Python cleaning script and a Jupyter notebook for guided EDA.
+
+- [Project documentation](03-python-eda/README.md)
+- [Raw synthetic dataset](03-python-eda/dataset/raw_healthcare_operations.csv)
+- [Python cleaning script](03-python-eda/scripts/clean_and_explore.py)
+- [Jupyter notebook](03-python-eda/notebooks/healthcare_data_cleaning_eda.ipynb)
 
 ## Tools and skills
 - Advanced Excel and MIS reporting concepts
-- Python, Pandas, NumPy (practice / developing skills)
-- Data cleaning, validation, aggregation, and KPI reporting
+- Python, Pandas, NumPy, Matplotlib
+- Data cleaning, validation, aggregation, KPI reporting, and exploratory analysis
 - Power BI is currently being learned
 
 ## Data and project integrity
-All demonstration datasets are synthetic and contain no real patient or customer information. These are portfolio practice projects, not employer-owned reports or production systems.
+All demonstration datasets are synthetic and contain no real patient, customer, or employer information. These are portfolio practice projects, not employer-owned reports or production systems.
