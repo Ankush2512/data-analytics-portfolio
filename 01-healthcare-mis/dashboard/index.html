@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Healthcare MIS Performance Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+:root{--navy:#142b4a;--blue:#2563eb;--teal:#0f9d91;--bg:#f3f6fb;--ink:#1d2939;--muted:#667085}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{background:linear-gradient(115deg,#142b4a,#245b87);color:white;padding:28px 5vw}
+header h1{margin:0 0 8px;font-size:27px}header p{margin:0;color:#d9e7f5}
+main{max-width:1400px;margin:24px auto;padding:0 22px}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+select,button{padding:10px 12px;border:1px solid #d0d5dd;border-radius:8px;background:white;color:#344054}
+button{cursor:pointer;background:var(--blue);color:white;border:0}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:14px}
+.card,.panel{background:white;border:1px solid #e5eaf1;border-radius:13px;box-shadow:0 2px 8px #102a4308}
+.card{padding:17px}.card .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.card .value{font-size:27px;font-weight:700;margin:9px 0 3px;color:var(--navy)}.card small{color:var(--muted)}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.panel{padding:18px;min-height:310px}.panel h2{font-size:16px;margin:0 0 14px;color:var(--navy)}
+.chart-wrap{height:245px;position:relative}
+.note{margin:18px 0;padding:12px 15px;border-left:4px solid #e5a000;background:#fff9e8;color:#694d00;border-radius:6px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:9px;border-bottom:1px solid #eaecf0}th{color:#475467;background:#f9fafb}
+.status{font-size:13px;color:var(--muted);margin:8px 0 14px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.panels{grid-template-columns:1fr}}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr}.card .value{font-size:21px}main{padding:0 12px}}
+</style></head>
+<body>
+<header><h1>Healthcare MIS Performance Dashboard</h1><p>Case volume • Approval performance • Turnaround time • Pending ageing</p></header>
+<main>
+<div class="toolbar"><label for="dept">Department:</label><select id="dept"><option value="All">All departments</option></select><label for="scheme">Scheme:</label><select id="scheme"><option value="All">All schemes</option></select><button id="reset">Reset filters</button></div>
+<div id="status" class="status">Loading synthetic portfolio dataset…</div>
+<section class="grid">
+<div class="card"><div class="label">Total cases</div><div class="value" id="total">—</div><small>Cases in selected view</small></div>
+<div class="card"><div class="label">Approval rate</div><div class="value" id="approval">—</div><small>Approved ÷ total cases</small></div>
+<div class="card"><div class="label">Pending cases</div><div class="value" id="pending">—</div><small>Requires follow-up</small></div>
+<div class="card"><div class="label">Average closed-case TAT</div><div class="value" id="tat">—</div><small>Approved and rejected cases only</small></div>
+<div class="card"><div class="label">Approved claim value</div><div class="value" id="approvedValue">—</div><small>INR</small></div>
+<div class="card"><div class="label">Query-raised cases</div><div class="value" id="queries">—</div><small>Cases flagged for query</small></div>
+<div class="card"><div class="label">Rejected cases</div><div class="value" id="rejected">—</div><small>Review rejection reasons offline</small></div>
+<div class="card"><div class="label">Pending over 15 days</div><div class="value" id="ageing">—</div><small>Ageing watchlist</small></div>
+</section>
+<section class="panels">
+<div class="panel"><h2>Case status distribution</h2><div class="chart-wrap"><canvas id="statusChart"></canvas></div></div>
+<div class="panel"><h2>Monthly case volume</h2><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
+<div class="panel"><h2>Department-wise cases</h2><div class="chart-wrap"><canvas id="deptChart"></canvas></div></div>
+<div class="panel"><h2>Pending-case ageing</h2><div class="chart-wrap"><canvas id="ageChart"></canvas></div></div>
+</section>
+<section class="panel" style="margin-top:16px"><h2>Department performance summary</h2><div style="overflow:auto"><table><thead><tr><th>Department</th><th>Total cases</th><th>Approved</th><th>Pending</th><th>Approval rate</th><th>Avg. closed TAT</th></tr></thead><tbody id="deptTable"></tbody></table></div></section>
+<div class="note"><b>Portfolio disclaimer:</b> This dashboard uses fictional synthetic data created for learning and demonstration. It does not represent actual hospital, patient, scheme, or employer performance. Average closed-case TAT excludes pending and query-raised cases.</div>
+</main>
+<script>
+const csvUrl='https://raw.githubusercontent.com/Ankush2512/data-analytics-portfolio/main/01-healthcare-mis/dataset/healthcare_cases_synthetic.csv';
+let rows=[], charts={};
+const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const pct=n=>(n*100).toFixed(1)+'%';
+const group=(arr,key)=>arr.reduce((o,r)=>{o[r[key]]=(o[r[key]]||0)+1;return o},{});
+function chart(id,type,labels,data,label){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type,data:{labels,datasets:[{label,data,backgroundColor:['#2563eb','#0f9d91','#f59e0b','#ef4444','#8b5cf6','#60a5fa'],borderColor:'#fff',borderWidth:2,tension:.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:type==='doughnut',position:'bottom'}},scales:type==='doughnut'?{}:{y:{beginAtZero:true,ticks:{precision:0}}}}});}
+function filtered(){const d=document.getElementById('dept').value,s=document.getElementById('scheme').value;return rows.filter(r=>(d==='All'||r.department===d)&&(s==='All'||r.scheme===s));}
+function render(){
+const a=filtered(),total=a.length,approved=a.filter(r=>r.case_status==='Approved'),pending=a.filter(r=>r.case_status==='Pending'),rejected=a.filter(r=>r.case_status==='Rejected'),queries=a.filter(r=>r.case_status==='Query Raised'),closed=a.filter(r=>['Approved','Rejected'].includes(r.case_status));
+const avg=closed.length?closed.reduce((x,r)=>x+r.days_in_process,0)/closed.length:0;
+document.getElementById('total').textContent=total;document.getElementById('approval').textContent=pct(total?approved.length/total:0);
+document.getElementById('pending').textContent=pending.length;document.getElementById('tat').textContent=avg.toFixed(1)+' days';
+document.getElementById('approvedValue').textContent=inr(approved.reduce((x,r)=>x+r.claim_amount_inr,0));
+document.getElementById('queries').textContent=queries.length;document.getElementById('rejected').textContent=rejected.length;
+document.getElementById('ageing').textContent=pending.filter(r=>r.days_in_process>15).length;
+const st=group(a,'case_status');chart('statusChart','doughnut',Object.keys(st),Object.values(st),'Cases');
+const months={};a.forEach(r=>{const m=r.admission_date.slice(0,7);months[m]=(months[m]||0)+1});const ml=Object.keys(months).sort();chart('monthlyChart','line',ml.map(m=>new Date(m+'-01').toLocaleString('en',{month:'short',year:'2-digit'})),ml.map(m=>months[m]),'Cases');
+const dp=group(a,'department');chart('deptChart','bar',Object.keys(dp),Object.values(dp),'Cases');
+const bins={'0–7 days':0,'8–15 days':0,'16–30 days':0,'31+ days':0};pending.forEach(r=>{const d=r.days_in_process;if(d<=7)bins['0–7 days']++;else if(d<=15)bins['8–15 days']++;else if(d<=30)bins['16–30 days']++;else bins['31+ days']++});chart('ageChart','bar',Object.keys(bins),Object.values(bins),'Pending cases');
+const tbody=document.getElementById('deptTable');tbody.innerHTML='';Object.keys(dp).sort().forEach(name=>{const x=a.filter(r=>r.department===name),ap=x.filter(r=>r.case_status==='Approved').length,pe=x.filter(r=>r.case_status==='Pending').length,cl=x.filter(r=>['Approved','Rejected'].includes(r.case_status)),t=cl.length?cl.reduce((s,r)=>s+r.days_in_process,0)/cl.length:0;const tr=document.createElement('tr');tr.innerHTML='<td>'+name+'</td><td>'+x.length+'</td><td>'+ap+'</td><td>'+pe+'</td><td>'+pct(x.length?ap/x.length:0)+'</td><td>'+t.toFixed(1)+' days</td>';tbody.appendChild(tr)});
+document.getElementById('status').textContent='Dataset loaded: '+rows.length+' synthetic records. Filters update all KPIs and charts.';
+}
+fetch(csvUrl).then(r=>{if(!r.ok)throw Error('Could not load CSV ('+r.status+')');return r.text()}).then(t=>{const parsed=Papa.parse(t,{header:true,skipEmptyLines:true});rows=parsed.data.map(r=>({...r,claim_amount_inr:Number(r.claim_amount_inr),days_in_process:Number(r.days_in_process)}));[...new Set(rows.map(r=>r.department))].sort().forEach(v=>document.getElementById('dept').add(new Option(v,v)));[...new Set(rows.map(r=>r.scheme))].sort().forEach(v=>document.getElementById('scheme').add(new Option(v,v)));render()}).catch(e=>{document.getElementById('status').textContent='Dashboard could not load data: '+e.message+'. Check the dataset URL and internet connection.'});
+document.getElementById('dept').addEventListener('change',render);document.getElementById('scheme').addEventListener('change',render);document.getElementById('reset').addEventListener('click',()=>{document.getElementById('dept').value='All';document.getElementById('scheme').value='All';render()});
+</script></body></html>
