@@ -1,0 +1,103 @@
+case_id,admission_date,department,diagnosis_group,length_of_stay_days,claim_amount_inr,case_status,follow_up_required
+EDA-001,2025-01-06,Paediatrics,Infection,8,5441,Pending,No
+EDA-002,2025-01-11,General Medicine,Orthopaedic,15,6382,Rejected,No
+EDA-003,2025-01-16,Cardiology,Other,4,7323,Query Raised,Yes
+EDA-004,2025-01-21,ENT,Cardiac,11,8264,Pending,No
+EDA-005,2025-01-26,Orthopaedics,Respiratory,18,9205,Rejected,No
+EDA-006,2025-01-31,Paediatrics,Infection,7,10146,Query Raised,Yes
+EDA-007,2025-02-05,General Medicine,Orthopaedic,14,11087,Approved,No
+EDA-008,2025-02-10,Cardiology,Other,3,12028,Rejected,No
+EDA-009,2025-02-15,ENT,Cardiac,10,12969,Query Raised,Yes
+EDA-010,2025-02-20,Orthopaedics,Respiratory,17,13910,Approved,No
+EDA-011,2025-02-25,Paediatrics,Infection,6,14851,Pending,No
+EDA-012,2025-03-02,General Medicine,Orthopaedic,13,15792,Query Raised,Yes
+EDA-013,2025-03-07,Cardiology,Other,2,16733,Approved,No
+EDA-014,2025-03-12,ENT,Cardiac,9,17674,Pending,No
+EDA-015,2025-03-17,Orthopaedics,Respiratory,16,18615,Rejected,Yes
+EDA-016,2025-03-22,Paediatrics,Infection,5,19556,Approved,No
+EDA-017,2025-03-27,General Medicine,Orthopaedic,,20497,Pending,No
+EDA-018,2025-04-01,Cardiology,Other,1,21438,Rejected,Yes
+EDA-019,2025-04-06,ENT,Cardiac,8,,Query Raised,No
+EDA-020,2025-04-11,Orthopaedics,Respiratory,15,23320,Pending,No
+EDA-021,2025-04-16,Paediatrics,Infection,4,24261,Rejected,Yes
+EDA-022,2025-04-21,General Medicine,Orthopaedic,11,25202,Query Raised,No
+EDA-023,2025-04-26,,Other,18,26143,Approved,No
+EDA-024,2025-05-01,ENT,Cardiac,7,27084,Rejected,Yes
+EDA-025,2025-05-06,Orthopaedics,Respiratory,14,28025,Query Raised,No
+EDA-026,2025-05-11,Paediatrics,Infection,3,28966,Approved,No
+EDA-027,2025-05-16,General Medicine,Orthopaedic,10,29907,Pending,Yes
+EDA-028,2025-05-21,Cardiology,Other,17,30848,Query Raised,No
+EDA-029,2025-05-26,ENT,Cardiac,6,31789,Approved,No
+EDA-030,2025-05-31,Orthopaedics,Respiratory,13,32730,Pending,Yes
+EDA-031,2025-06-05,Paediatrics,Infection,2,33671,Rejected,No
+EDA-032,2025-06-10,General Medicine,Orthopaedic,9,34612,Approved,No
+EDA-033,2025-06-15,Cardiology,Other,16,35553,Pending,Yes
+EDA-034,2025-06-20,ENT,Cardiac,,36494,Rejected,No
+EDA-035,2025-06-25,Orthopaedics,Respiratory,12,37435,Query Raised,No
+EDA-036,2025-06-30,Paediatrics,Infection,1,38376,Pending,Yes
+EDA-037,2025-07-05,General Medicine,Orthopaedic,8,39317,Rejected,No
+EDA-038,2025-07-10,Cardiology,Other,15,,Query Raised,No
+EDA-039,2025-07-15,ENT,Cardiac,4,41199,Approved,Yes
+EDA-040,2025-07-20,Orthopaedics,Respiratory,11,42140,Rejected,No
+EDA-041,2025-07-25,Paediatrics,Infection,18,43081,Query Raised,No
+EDA-042,2025-07-30,General Medicine,Orthopaedic,7,44022,Approved,Yes
+EDA-043,2025-08-04,Cardiology,Other,14,44963,Pending,No
+EDA-044,2025-08-09,ENT,Cardiac,3,45904,Query Raised,No
+EDA-045,2025-08-14,Orthopaedics,Respiratory,10,4845,Approved,Yes
+EDA-046,2025-08-19,,Infection,17,5786,Pending,No
+EDA-047,2025-08-24,General Medicine,Orthopaedic,6,6727,Rejected,No
+EDA-048,2025-08-29,Cardiology,Other,13,7668,Approved,Yes
+EDA-049,2025-09-03,ENT,Cardiac,2,8609,Pending,No
+EDA-050,2025-09-08,Orthopaedics,Respiratory,9,9550,Rejected,No
+EDA-051,2025-09-13,Paediatrics,Infection,,10491,Query Raised,Yes
+EDA-052,2025-09-18,General Medicine,Orthopaedic,5,11432,Pending,No
+EDA-053,2025-09-23,Cardiology,Other,12,12373,Rejected,No
+EDA-054,2025-09-28,ENT,Cardiac,1,13314,Query Raised,Yes
+EDA-055,2025-10-03,Orthopaedics,Respiratory,8,14255,Approved,No
+EDA-056,2025-10-08,Paediatrics,Infection,15,15196,Rejected,No
+EDA-057,2025-10-13,General Medicine,Orthopaedic,4,,Query Raised,Yes
+EDA-058,2025-10-18,Cardiology,Other,11,17078,Approved,No
+EDA-059,2025-10-23,ENT,Cardiac,18,18019,Pending,No
+EDA-060,2025-10-28,Orthopaedics,Respiratory,7,18960,Query Raised,Yes
+EDA-061,2025-11-02,Paediatrics,Infection,14,19901,Approved,No
+EDA-062,2025-11-07,General Medicine,Orthopaedic,3,20842,Pending,No
+EDA-063,2025-11-12,Cardiology,Other,10,21783,Rejected,Yes
+EDA-064,2025-11-17,ENT,Cardiac,17,22724,Approved,No
+EDA-065,2025-11-22,Orthopaedics,Respiratory,6,23665,Pending,No
+EDA-066,2025-11-27,Paediatrics,Infection,13,24606,Rejected,Yes
+EDA-067,2025-12-02,General Medicine,Orthopaedic,2,25547,Query Raised,No
+EDA-068,2025-12-07,Cardiology,Other,,26488,Pending,No
+EDA-069,2025-12-12,,Cardiac,16,27429,Rejected,Yes
+EDA-070,2025-12-17,Orthopaedics,Respiratory,5,28370,Query Raised,No
+EDA-071,2025-12-22,Paediatrics,Infection,12,29311,Approved,No
+EDA-072,2025-12-27,General Medicine,Orthopaedic,1,30252,Rejected,Yes
+EDA-073,2025-01-01,Cardiology,Other,8,31193,Query Raised,No
+EDA-074,2025-01-06,ENT,Cardiac,15,32134,Approved,No
+EDA-075,2025-01-11,Orthopaedics,Respiratory,4,33075,Pending,Yes
+EDA-076,2025-01-16,Paediatrics,Infection,11,,Query Raised,No
+EDA-077,2025-01-21,General Medicine,Orthopaedic,18,34957,Approved,No
+EDA-078,2025-01-26,Cardiology,Other,7,35898,Pending,Yes
+EDA-079,2025-01-31,ENT,Cardiac,14,36839,Rejected,No
+EDA-080,2025-02-05,Orthopaedics,Respiratory,3,37780,Approved,No
+EDA-081,2025-02-10,Paediatrics,Infection,10,38721,Pending,Yes
+EDA-082,2025-02-15,General Medicine,Orthopaedic,17,39662,Rejected,No
+EDA-083,2025-02-20,Cardiology,Other,6,40603,Query Raised,No
+EDA-084,2025-02-25,ENT,Cardiac,13,41544,Pending,Yes
+EDA-085,2025-03-02,Orthopaedics,Respiratory,,42485,Rejected,No
+EDA-086,2025-03-07,Paediatrics,Infection,9,43426,Query Raised,No
+EDA-087,2025-03-12,General Medicine,Orthopaedic,16,44367,Approved,Yes
+EDA-088,2025-03-17,Cardiology,Other,5,45308,Rejected,No
+EDA-089,2025-03-22,ENT,Cardiac,12,46249,Query Raised,No
+EDA-090,2025-03-27,Orthopaedics,Respiratory,1,5190,Approved,Yes
+EDA-091,2025-04-01,Paediatrics,Infection,8,6131,Pending,No
+EDA-092,2025-04-06,,Orthopaedic,15,7072,Query Raised,No
+EDA-093,2025-04-11,Cardiology,Other,4,8013,Approved,Yes
+EDA-094,2025-04-16,ENT,Cardiac,11,8954,Pending,No
+EDA-095,2025-04-21,Orthopaedics,Respiratory,18,,Rejected,No
+EDA-096,2025-04-26,Paediatrics,Infection,7,10836,Approved,Yes
+EDA-097,2025-05-01,General Medicine,Orthopaedic,14,11777,Pending,No
+EDA-098,2025-05-06,Cardiology,Other,3,12718,Rejected,No
+EDA-099,2025-05-11,ENT,Cardiac,10,13659,Query Raised,Yes
+EDA-100,2025-05-16,Orthopaedics,Respiratory,17,14600,Pending,No
+EDA-010,2025-02-20,Orthopaedics,Respiratory,17,13910,Approved,No
+EDA-035,2025-06-25,Orthopaedics,Respiratory,12,37435,Query Raised,No
