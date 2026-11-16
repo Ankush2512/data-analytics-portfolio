@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+01-healthcare-mis/output/*
+!01-healthcare-mis/output/.gitkeep
