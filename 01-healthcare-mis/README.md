@@ -57,3 +57,7 @@ The script creates:
 Advanced Excel / MIS concepts, KPI definition, data validation, data cleaning with Python and Pandas, aggregation, reporting, and basic data visualization.
 
 **Note:** This is a self-directed practice project. It is not presented as an official report or as work performed for an employer.
+
+
+## Interactive dashboard
+Open the [Healthcare MIS Performance Dashboard](dashboard/index.html) for interactive KPI cards, department and scheme filters, case-status distribution, monthly case volume, department-wise cases, and pending-case ageing. The dashboard loads the synthetic CSV directly from this repository and uses Chart.js for charts. It requires an internet connection to load its libraries and dataset. To publish it as a live webpage, enable GitHub Pages for this repository and use the `main` branch with the `/ (root)` folder; then open `/01-healthcare-mis/dashboard/` on the published site.
