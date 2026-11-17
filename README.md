@@ -64,3 +64,13 @@ A beginner-friendly command-line application demonstrating Python fundamentals, 
 - [Python application](04-library-management/library_management.py)
 - [Sample book data](04-library-management/data/books.json)
 - [Unit tests](04-library-management/tests/test_library.py)
+
+
+### 05. Business Operations MIS & Performance Dashboard
+A Python reporting workflow using synthetic operational task and monthly target data. It calculates department/month summaries, completed and open task counts, SLA compliance, target comparison and fixed-date pending ageing, then exports an Excel workbook, CSV summaries and charts.
+
+- [Project documentation](05-business-operations-mis/README.md)
+- [Operations task dataset](05-business-operations-mis/dataset/operations_tasks_synthetic.csv)
+- [Monthly targets dataset](05-business-operations-mis/dataset/monthly_targets_synthetic.csv)
+- [Python MIS automation script](05-business-operations-mis/scripts/build_operations_mis.py)
+
