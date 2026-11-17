@@ -56,3 +56,11 @@ A synthetic healthcare operations dataset with intentionally introduced missing 
 
 ## Data and project integrity
 All demonstration datasets are synthetic and contain no real patient, customer, or employer information. These are portfolio practice projects, not employer-owned reports or production systems.
+
+### 04. Library Management System (Python)
+A beginner-friendly command-line application demonstrating Python fundamentals, book catalogue management, issue/return tracking, login attempts, and JSON file storage.
+
+- [Project documentation](04-library-management/README.md)
+- [Python application](04-library-management/library_management.py)
+- [Sample book data](04-library-management/data/books.json)
+- [Unit tests](04-library-management/tests/test_library.py)
