@@ -65,6 +65,18 @@ class LibraryManagementTests(unittest.TestCase):
         self.assertFalse(app.issue_book(self.library, "B001", "  "))
         self.assertFalse(app.return_book(self.library, "MISSING"))
 
+    def test_numeric_book_id_is_supported(self):
+        self.assertTrue(app.add_book(self.library, "101", "Python Basics", "A. Author"))
+        self.assertIn("101", self.library)
+
+    def test_modify_book_using_current_title(self):
+        app.add_book(self.library, "BK001", "Python Basics", "A. Author")
+        self.assertTrue(
+            app.modify_book(self.library, "python basics", "Python Advanced", "New Author")
+        )
+        self.assertEqual(self.library["BK001"]["title"], "Python Advanced")
+        self.assertEqual(self.library["BK001"]["author"], "New Author")
+
     def test_modify_book_and_reject_duplicate_title(self):
         app.add_book(self.library, "B001", "Python Basics", "A. Author")
         app.add_book(self.library, "B002", "Data Science", "B. Author")
