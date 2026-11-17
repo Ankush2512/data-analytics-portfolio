@@ -12,6 +12,16 @@ Explore an interactive dashboard with case-status KPIs, approval rate, pending-c
 
 [View the project source and documentation](01-healthcare-mis/README.md).
 
+## More live dashboards
+
+### Sales Funnel & Conversion Dashboard
+
+**[👉 Open the Interactive Live Dashboard](https://ankush2512.github.io/data-analytics-portfolio/02-sales-funnel/dashboard/)**
+
+Explore lead volume, booked orders, conversion, pipeline stages, channel and regional performance, and lost-lead reasons. Uses synthetic practice data only.
+
+[View Project 02 documentation](02-sales-funnel/README.md).
+
 ## Projects
 
 ### 01. Healthcare MIS Reporting & Performance Analysis
@@ -25,6 +35,7 @@ A synthetic healthcare operations dataset and Python-based reporting workflow co
 ### 02. Sales Funnel & Conversion Analysis
 A fictional sales-lead pipeline used to practise funnel KPIs, lead-to-order conversion, lost-lead analysis, and channel/region comparisons. This is a learning project, not a claim of professional sales experience.
 
+- [Live interactive dashboard](https://ankush2512.github.io/data-analytics-portfolio/02-sales-funnel/dashboard/)
 - [Project documentation](02-sales-funnel/README.md)
 - [Synthetic leads dataset](02-sales-funnel/dataset/sales_leads_synthetic.csv)
 - [Python analysis script](02-sales-funnel/scripts/analyze_sales_funnel.py)
