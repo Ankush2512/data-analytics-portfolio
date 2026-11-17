@@ -55,6 +55,10 @@ Run the automated tests from this folder:
 python -m unittest discover -s tests -v
 ```
 
+The test suite covers book creation and validation, duplicate prevention, modification, issue/return rules, JSON persistence, malformed or missing data files, and login behavior. The application has also passed a local command-line smoke test covering login, add, issue, view-issued, return, exit, and saved-data persistence.
+
+A GitHub Actions workflow compiles the application and runs the unit tests whenever Project 04 files are changed.
+
 ## Scope and limitations
 This is a self-directed educational portfolio project based on a Python mini-project brief. It is not a deployed library system and does not represent professional library-management experience. The demo login is intentionally simple. The program is designed for a single local user and does not support simultaneous users, due dates, fines, or audit history.
 
