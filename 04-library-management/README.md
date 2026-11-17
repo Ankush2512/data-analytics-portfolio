@@ -55,7 +55,7 @@ Run the automated tests from this folder:
 python -m unittest discover -s tests -v
 ```
 
-The test suite covers book creation and validation, duplicate prevention, modification, issue/return rules, JSON persistence, malformed or missing data files, and login behavior. The application has also passed a local command-line smoke test covering login, add, issue, view-issued, return, exit, and saved-data persistence.
+The 14-test suite covers book creation and validation, numeric IDs, modification by ID and title, duplicate prevention, issue/return rules (including returning one book while other issued books remain visible), JSON persistence, malformed or missing data files, and login behavior. Local verification was completed by running `python -m unittest discover -s tests -v` with Python 3.13.9; all 14 tests passed. Manual command-line checks also confirmed the main book-management functions work, including add, modify, issue, return, and view-issued.
 
 A GitHub Actions workflow compiles the application and runs the unit tests whenever Project 04 files are changed.
 
