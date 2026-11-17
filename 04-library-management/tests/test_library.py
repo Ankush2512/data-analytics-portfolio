@@ -34,6 +34,31 @@ class LibraryManagementTests(unittest.TestCase):
         self.assertTrue(self.library["B001"]["available"])
         self.assertIsNone(self.library["B001"]["issued_to"])
 
+
+    def test_returning_one_book_keeps_other_issued_books_visible(self):
+        app.add_book(self.library, "B001", "Python Basics", "A. Author")
+        app.add_book(self.library, "B002", "Data Science", "B. Author")
+        app.add_book(self.library, "B003", "Programming Logic", "C. Author")
+
+        self.assertTrue(app.issue_book(self.library, "B001", "Borrower One"))
+        self.assertTrue(app.issue_book(self.library, "B002", "Borrower Two"))
+        self.assertTrue(app.issue_book(self.library, "B003", "Borrower Three"))
+
+        self.assertTrue(app.return_book(self.library, "B001"))
+
+        from io import StringIO
+        from unittest.mock import patch
+        output = StringIO()
+        with patch("sys.stdout", output):
+            app.view_issued_books(self.library)
+
+        displayed = output.getvalue()
+        self.assertNotIn("B001", displayed)
+        self.assertIn("B002", displayed)
+        self.assertIn("B003", displayed)
+        self.assertEqual(self.library["B002"]["issued_to"], "Borrower Two")
+        self.assertEqual(self.library["B003"]["issued_to"], "Borrower Three")
+
     def test_reject_unknown_book_and_blank_borrower(self):
         self.assertFalse(app.issue_book(self.library, "MISSING", "Ankush"))
         app.add_book(self.library, "B001", "Python Basics", "A. Author")
