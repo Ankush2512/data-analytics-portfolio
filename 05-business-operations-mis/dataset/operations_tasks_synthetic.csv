@@ -1,0 +1,121 @@
+task_id,task_date,department,task_type,priority,task_status,target_sla_days,actual_tat_days,sla_met,owner_team
+OPS-0001,2026-01-08,Customer Support,Service Request,Medium,Pending,4,,,Customer Support Team
+OPS-0002,2026-01-04,Customer Support,Customer Query,Critical,In Progress,1,,,Customer Support Team
+OPS-0003,2026-01-10,Finance,Invoice Processing,Medium,Pending,4,,,Finance Team
+OPS-0004,2026-01-11,HR,Employee Onboarding,High,Pending,2,,,HR Team
+OPS-0005,2026-01-01,Finance,Invoice Processing,High,In Progress,2,,,Finance Team
+OPS-0006,2026-01-04,Finance,Invoice Processing,High,In Progress,2,,,Finance Team
+OPS-0007,2026-01-03,HR,Leave Processing,High,Pending,2,,,HR Team
+OPS-0008,2026-01-07,Logistics,Dispatch Coordination,Critical,Overdue,1,,,Logistics Team
+OPS-0009,2026-01-12,Finance,Expense Review,Medium,Pending,4,,,Finance Team
+OPS-0010,2026-01-24,Operations,Daily Reconciliation,Low,In Progress,6,,,Operations Team
+OPS-0011,2026-01-13,Logistics,Inventory Update,Low,Overdue,6,,,Logistics Team
+OPS-0012,2026-01-16,Customer Support,Service Request,High,In Progress,2,,,Customer Support Team
+OPS-0013,2026-01-22,HR,Attendance Update,Medium,Completed,4,9,No,HR Team
+OPS-0014,2026-01-25,Logistics,Inventory Update,Low,Pending,6,,,Logistics Team
+OPS-0015,2026-01-02,Logistics,Delivery Tracking,High,Overdue,2,,,Logistics Team
+OPS-0016,2026-01-17,Operations,Daily Reconciliation,Low,Pending,6,,,Operations Team
+OPS-0017,2026-01-24,HR,Employee Onboarding,High,Completed,2,9,No,HR Team
+OPS-0018,2026-01-10,IT,System Support,High,In Progress,2,,,IT Team
+OPS-0019,2026-01-27,IT,Access Request,Medium,Overdue,4,,,IT Team
+OPS-0020,2026-01-14,IT,Incident Resolution,Medium,Overdue,4,,,IT Team
+OPS-0021,2026-02-06,Logistics,Dispatch Coordination,Low,Completed,6,3,Yes,Logistics Team
+OPS-0022,2026-02-03,HR,Employee Onboarding,Critical,Overdue,1,,,HR Team
+OPS-0023,2026-02-18,Operations,Daily Reconciliation,Medium,Overdue,4,,,Operations Team
+OPS-0024,2026-02-16,IT,System Support,Low,In Progress,6,,,IT Team
+OPS-0025,2026-02-18,Operations,Order Processing,Critical,Pending,1,,,Operations Team
+OPS-0026,2026-02-09,IT,Access Request,High,Pending,2,,,IT Team
+OPS-0027,2026-02-01,IT,Incident Resolution,Medium,Pending,4,,,IT Team
+OPS-0028,2026-02-01,Finance,Invoice Processing,Low,Pending,6,,,Finance Team
+OPS-0029,2026-02-26,IT,System Support,Low,Pending,6,,,IT Team
+OPS-0030,2026-02-09,Finance,Invoice Processing,Medium,Completed,4,4,Yes,Finance Team
+OPS-0031,2026-02-13,Logistics,Delivery Tracking,High,Completed,2,9,No,Logistics Team
+OPS-0032,2026-02-02,HR,Employee Onboarding,Low,Pending,6,,,HR Team
+OPS-0033,2026-02-14,IT,System Support,Low,In Progress,6,,,IT Team
+OPS-0034,2026-02-27,Operations,Document Verification,Critical,Completed,1,1,Yes,Operations Team
+OPS-0035,2026-02-13,HR,Attendance Update,High,In Progress,2,,,HR Team
+OPS-0036,2026-02-12,IT,System Support,Medium,Pending,4,,,IT Team
+OPS-0037,2026-02-02,Operations,Daily Reconciliation,High,Completed,2,3,No,Operations Team
+OPS-0038,2026-02-03,HR,Employee Onboarding,Medium,Pending,4,,,HR Team
+OPS-0039,2026-02-06,Operations,Order Processing,Low,Completed,6,4,Yes,Operations Team
+OPS-0040,2026-02-01,Logistics,Inventory Update,Critical,Overdue,1,,,Logistics Team
+OPS-0041,2026-03-14,Customer Support,Customer Query,High,Overdue,2,,,Customer Support Team
+OPS-0042,2026-03-01,Operations,Daily Reconciliation,High,Pending,2,,,Operations Team
+OPS-0043,2026-03-14,HR,Employee Onboarding,Critical,Completed,1,5,No,HR Team
+OPS-0044,2026-03-01,Logistics,Inventory Update,Critical,Completed,1,1,Yes,Logistics Team
+OPS-0045,2026-03-03,Operations,Daily Reconciliation,Low,Overdue,6,,,Operations Team
+OPS-0046,2026-03-07,Logistics,Delivery Tracking,High,Overdue,2,,,Logistics Team
+OPS-0047,2026-03-17,HR,Employee Onboarding,Low,Pending,6,,,HR Team
+OPS-0048,2026-03-02,Logistics,Delivery Tracking,High,Overdue,2,,,Logistics Team
+OPS-0049,2026-03-03,IT,Access Request,High,Pending,2,,,IT Team
+OPS-0050,2026-03-03,Customer Support,Complaint Resolution,Critical,Completed,1,1,Yes,Customer Support Team
+OPS-0051,2026-03-20,Customer Support,Customer Query,Medium,Completed,4,4,Yes,Customer Support Team
+OPS-0052,2026-03-26,Customer Support,Customer Query,Low,Pending,6,,,Customer Support Team
+OPS-0053,2026-03-15,HR,Leave Processing,Low,Pending,6,,,HR Team
+OPS-0054,2026-03-04,IT,Incident Resolution,High,Pending,2,,,IT Team
+OPS-0055,2026-03-06,Logistics,Delivery Tracking,Low,In Progress,6,,,Logistics Team
+OPS-0056,2026-03-25,Customer Support,Customer Query,High,Completed,2,5,No,Customer Support Team
+OPS-0057,2026-03-11,IT,Incident Resolution,Critical,Completed,1,8,No,IT Team
+OPS-0058,2026-03-16,Logistics,Inventory Update,Medium,Overdue,4,,,Logistics Team
+OPS-0059,2026-03-20,Logistics,Dispatch Coordination,High,Pending,2,,,Logistics Team
+OPS-0060,2026-03-21,IT,Access Request,Critical,Completed,1,2,No,IT Team
+OPS-0061,2026-04-07,HR,Attendance Update,Critical,Pending,1,,,HR Team
+OPS-0062,2026-04-27,Operations,Order Processing,High,Pending,2,,,Operations Team
+OPS-0063,2026-04-25,Finance,Expense Review,Medium,Completed,4,7,No,Finance Team
+OPS-0064,2026-04-22,IT,System Support,Critical,In Progress,1,,,IT Team
+OPS-0065,2026-04-18,Customer Support,Customer Query,Medium,Completed,4,6,No,Customer Support Team
+OPS-0066,2026-04-03,HR,Employee Onboarding,Critical,Completed,1,3,No,HR Team
+OPS-0067,2026-04-15,Customer Support,Service Request,Low,In Progress,6,,,Customer Support Team
+OPS-0068,2026-04-16,Logistics,Dispatch Coordination,Low,In Progress,6,,,Logistics Team
+OPS-0069,2026-04-21,IT,Access Request,Low,Overdue,6,,,IT Team
+OPS-0070,2026-04-11,Operations,Order Processing,Medium,Pending,4,,,Operations Team
+OPS-0071,2026-04-18,Operations,Daily Reconciliation,Medium,Overdue,4,,,Operations Team
+OPS-0072,2026-04-20,Finance,Expense Review,Medium,Pending,4,,,Finance Team
+OPS-0073,2026-04-03,IT,Access Request,Critical,In Progress,1,,,IT Team
+OPS-0074,2026-04-11,IT,Access Request,Critical,In Progress,1,,,IT Team
+OPS-0075,2026-04-01,Customer Support,Service Request,Medium,Overdue,4,,,Customer Support Team
+OPS-0076,2026-04-09,Operations,Document Verification,Medium,Overdue,4,,,Operations Team
+OPS-0077,2026-04-22,Logistics,Delivery Tracking,Critical,Overdue,1,,,Logistics Team
+OPS-0078,2026-04-15,Operations,Daily Reconciliation,Low,Completed,6,9,No,Operations Team
+OPS-0079,2026-04-17,Logistics,Delivery Tracking,High,Completed,2,8,No,Logistics Team
+OPS-0080,2026-04-19,HR,Leave Processing,High,Completed,2,6,No,HR Team
+OPS-0081,2026-05-13,Customer Support,Service Request,Medium,Overdue,4,,,Customer Support Team
+OPS-0082,2026-05-05,Customer Support,Complaint Resolution,High,In Progress,2,,,Customer Support Team
+OPS-0083,2026-05-27,HR,Leave Processing,Critical,Completed,1,4,No,HR Team
+OPS-0084,2026-05-12,Logistics,Inventory Update,Critical,Pending,1,,,Logistics Team
+OPS-0085,2026-05-01,IT,System Support,High,Pending,2,,,IT Team
+OPS-0086,2026-05-16,Customer Support,Customer Query,Critical,Overdue,1,,,Customer Support Team
+OPS-0087,2026-05-17,Finance,Payment Verification,Medium,Completed,4,9,No,Finance Team
+OPS-0088,2026-05-15,Operations,Order Processing,Critical,Pending,1,,,Operations Team
+OPS-0089,2026-05-24,Finance,Invoice Processing,Medium,In Progress,4,,,Finance Team
+OPS-0090,2026-05-21,Operations,Order Processing,High,Completed,2,8,No,Operations Team
+OPS-0091,2026-05-03,IT,System Support,Low,Overdue,6,,,IT Team
+OPS-0092,2026-05-14,Customer Support,Service Request,Low,Pending,6,,,Customer Support Team
+OPS-0093,2026-05-11,Finance,Payment Verification,High,Overdue,2,,,Finance Team
+OPS-0094,2026-05-06,Finance,Expense Review,Critical,Pending,1,,,Finance Team
+OPS-0095,2026-05-15,Finance,Payment Verification,High,Overdue,2,,,Finance Team
+OPS-0096,2026-05-17,Operations,Document Verification,High,Overdue,2,,,Operations Team
+OPS-0097,2026-05-11,IT,Access Request,Medium,In Progress,4,,,IT Team
+OPS-0098,2026-05-01,Customer Support,Complaint Resolution,Medium,Pending,4,,,Customer Support Team
+OPS-0099,2026-05-03,Operations,Order Processing,Low,In Progress,6,,,Operations Team
+OPS-0100,2026-05-16,Operations,Order Processing,Medium,Overdue,4,,,Operations Team
+OPS-0101,2026-06-24,Finance,Expense Review,High,Overdue,2,,,Finance Team
+OPS-0102,2026-06-03,HR,Employee Onboarding,High,Completed,2,2,Yes,HR Team
+OPS-0103,2026-06-14,IT,Incident Resolution,Medium,In Progress,4,,,IT Team
+OPS-0104,2026-06-17,Finance,Expense Review,High,Pending,2,,,Finance Team
+OPS-0105,2026-06-07,HR,Leave Processing,Critical,In Progress,1,,,HR Team
+OPS-0106,2026-06-18,IT,Access Request,High,Pending,2,,,IT Team
+OPS-0107,2026-06-04,Customer Support,Customer Query,High,Pending,2,,,Customer Support Team
+OPS-0108,2026-06-24,Operations,Order Processing,Critical,Pending,1,,,Operations Team
+OPS-0109,2026-06-01,Operations,Document Verification,High,In Progress,2,,,Operations Team
+OPS-0110,2026-06-23,Finance,Invoice Processing,High,In Progress,2,,,Finance Team
+OPS-0111,2026-06-06,Customer Support,Customer Query,Medium,In Progress,4,,,Customer Support Team
+OPS-0112,2026-06-13,Logistics,Delivery Tracking,High,Pending,2,,,Logistics Team
+OPS-0113,2026-06-02,HR,Leave Processing,Low,Pending,6,,,HR Team
+OPS-0114,2026-06-20,Finance,Payment Verification,Low,Completed,6,6,Yes,Finance Team
+OPS-0115,2026-06-20,Operations,Document Verification,Medium,Completed,4,5,No,Operations Team
+OPS-0116,2026-06-25,Customer Support,Service Request,Low,In Progress,6,,,Customer Support Team
+OPS-0117,2026-06-09,IT,Incident Resolution,Critical,Pending,1,,,IT Team
+OPS-0118,2026-06-24,Finance,Payment Verification,Low,In Progress,6,,,Finance Team
+OPS-0119,2026-06-08,Finance,Expense Review,High,Completed,2,2,Yes,Finance Team
+OPS-0120,2026-06-09,Logistics,Inventory Update,Medium,In Progress,4,,,Logistics Team
