@@ -38,3 +38,11 @@ The script prints an executive KPI summary and saves channel, region, and stage 
 
 ## Skills demonstrated
 Pandas, data validation, grouping, KPI calculations, funnel analysis, business reporting, and charting.
+
+## Interactive dashboard
+
+Open the [Sales Funnel & Conversion Dashboard](dashboard/index.html) to explore lead and order KPIs, current-stage distribution, monthly lead volume, channel performance, lost reasons, and regional performance. Filters are available for region, channel, lead source, and current stage. The dashboard reads the synthetic CSV directly from this repository and uses Chart.js; an internet connection is required to load the chart library. When GitHub Pages is enabled, the live page is available at:
+
+`https://ankush2512.github.io/data-analytics-portfolio/02-sales-funnel/dashboard/`
+
+All displayed figures are calculated from the 120-row synthetic dataset. The conversion metric is a snapshot lead-to-order rate, not stage-to-stage conversion.
