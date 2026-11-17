@@ -63,17 +63,35 @@ def add_book(library, book_id, title, author):
     return True
 
 
-def modify_book(library, book_id, title, author):
-    book_id = book_id.strip().upper()
-    if book_id not in library or not title.strip() or not author.strip():
+def find_book_id(library, identifier):
+    """Find a book by its ID or exact current title."""
+    identifier = identifier.strip()
+    if not identifier:
+        return None
+
+    normalized_id = identifier.upper()
+    if normalized_id in library:
+        return normalized_id
+
+    for book_id, book in library.items():
+        if book["title"].strip().casefold() == identifier.casefold():
+            return book_id
+    return None
+
+
+def modify_book(library, identifier, title, author):
+    """Modify a book using either its ID or its exact current title."""
+    book_id = find_book_id(library, identifier)
+    title, author = title.strip(), author.strip()
+    if book_id is None or not title or not author:
         return False
     if any(
-        key != book_id and item["title"].casefold() == title.strip().casefold()
+        key != book_id and item["title"].casefold() == title.casefold()
         for key, item in library.items()
     ):
         return False
-    library[book_id]["title"] = title.strip()
-    library[book_id]["author"] = author.strip()
+    library[book_id]["title"] = title
+    library[book_id]["author"] = author
     return True
 
 
@@ -162,7 +180,7 @@ def main():
             else:
                 print("Book not added. Check the ID/title and required fields.")
         elif choice == "3":
-            book_id = input("Enter the book ID to modify: ")
+            book_id = input("Enter the book ID or current book title to modify: ")
             title = input("Enter updated title: ")
             author = input("Enter updated author: ")
             if modify_book(library, book_id, title, author):
