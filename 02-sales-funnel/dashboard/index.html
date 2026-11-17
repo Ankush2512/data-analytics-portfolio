@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Funnel & Conversion Dashboard | Portfolio Project 02</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--navy:#13243a;--blue:#2563eb;--teal:#0f766e;--bg:#f3f6fb;--ink:#172033;--muted:#64748b;--line:#e2e8f0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#10233e,#1e4d75);color:white;padding:28px max(22px,calc((100% - 1200px)/2))}
+header h1{margin:0 0 8px;font-size:clamp(24px,4vw,34px)}header p{margin:0;color:#dbeafe;max-width:850px;line-height:1.5}
+main{max-width:1200px;margin:24px auto;padding:0 18px 40px}.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px 15px;border-radius:10px;margin-bottom:18px;font-size:13px}
+.filters{display:flex;gap:12px;flex-wrap:wrap;background:white;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:18px}
+label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:5px;font-weight:600}
+select{min-width:150px;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;background:white;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:17px;box-shadow:0 2px 8px #0f172a08}
+.kpi-label{font-size:12px;color:var(--muted);font-weight:600}.kpi-value{font-size:26px;font-weight:750;margin-top:8px;color:var(--navy)}.kpi-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}.panel h2{font-size:16px;margin:0 0 14px;color:var(--navy)}.chart-wrap{height:270px;position:relative}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.charts{grid-template-columns:1fr}}@media(max-width:440px){.grid{grid-template-columns:1fr 1fr}.kpi-value{font-size:21px}}
+</style>
+</head>
+<body>
+<header><h1>Sales Funnel & Conversion Dashboard</h1><p>Portfolio Project 02 · Interactive analysis of lead volume, current pipeline stage, booked orders, channel performance and lost opportunities.</p></header>
+<main>
+<div class="notice"><strong>Portfolio practice project:</strong> All 120 lead records are synthetic and fictional. This dashboard does not represent actual sales employment or customer data. Conversion is calculated as booked orders ÷ total leads; stage-to-stage conversion cannot be inferred from this snapshot dataset.</div>
+<section class="filters">
+<label>Region<select id="region"><option value="">All regions</option></select></label>
+<label>Channel<select id="channel"><option value="">All channels</option></select></label>
+<label>Lead source<select id="source"><option value="">All sources</option></select></label>
+<label>Current stage<select id="stage"><option value="">All stages</option></select></label>
+</section>
+<section class="grid">
+<div class="card"><div class="kpi-label">TOTAL LEADS</div><div class="kpi-value" id="leads">—</div><div class="kpi-sub">Filtered lead records</div></div>
+<div class="card"><div class="kpi-label">ORDERS BOOKED</div><div class="kpi-value" id="booked">—</div><div class="kpi-sub">Current stage = Order Booked</div></div>
+<div class="card"><div class="kpi-label">LEAD-TO-ORDER CONVERSION</div><div class="kpi-value" id="conversion">—</div><div class="kpi-sub">Booked orders ÷ total leads</div></div>
+<div class="card"><div class="kpi-label">BOOKED ORDER VALUE</div><div class="kpi-value" id="value">—</div><div class="kpi-sub">Sum of booked order values</div></div>
+</section>
+<section class="grid">
+<div class="card"><div class="kpi-label">LOST LEADS</div><div class="kpi-value" id="lost">—</div><div class="kpi-sub">Current stage = Lost</div></div>
+<div class="card"><div class="kpi-label">LOST RATE</div><div class="kpi-value" id="lostRate">—</div><div class="kpi-sub">Lost leads ÷ total leads</div></div>
+<div class="card"><div class="kpi-label">OPEN PIPELINE</div><div class="kpi-value" id="open">—</div><div class="kpi-sub">All stages except booked and lost</div></div>
+<div class="card"><div class="kpi-label">AVERAGE BOOKED ORDER</div><div class="kpi-value" id="average">—</div><div class="kpi-sub">Booked value ÷ booked orders</div></div>
+</section>
+<section class="charts">
+<div class="panel"><h2>Lead distribution by current stage</h2><div class="chart-wrap"><canvas id="stageChart"></canvas></div></div>
+<div class="panel"><h2>Monthly lead volume</h2><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
+<div class="panel"><h2>Channel performance</h2><div class="chart-wrap"><canvas id="channelChart"></canvas></div></div>
+<div class="panel"><h2>Lost lead reasons</h2><div class="chart-wrap"><canvas id="lossChart"></canvas></div></div>
+</section>
+<section class="panel"><h2>Performance by region</h2><div class="table-wrap"><table><thead><tr><th>Region</th><th>Leads</th><th>Booked</th><th>Conversion</th><th>Booked value</th></tr></thead><tbody id="regionTable"></tbody></table></div></section>
+</main>
+<footer>Built with HTML, CSS, JavaScript, Chart.js · Dataset: sales_leads_synthetic.csv · Synthetic data only</footer>
+<script>
+let allRows=[], charts={};
+const money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n||0);
+const pct=n=>(n||0).toFixed(1)+'%';
+function parseCSV(text){const lines=text.trim().split(/\r?\n/);const headers=lines.shift().split(',');return lines.map(line=>{const vals=line.split(',');return Object.fromEntries(headers.map((h,i)=>[h,vals[i]??'']));});}
+function fillFilter(id,key){const el=document.getElementById(id);[...new Set(allRows.map(r=>r[key]).filter(Boolean))].sort().forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;el.appendChild(o);});}
+function aggregate(rows,key){const m={};rows.forEach(r=>m[r[key]]=(m[r[key]]||0)+1);return m;}
+function draw(id,type,labels,datasets,options={}){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:type==='doughnut'||type==='pie',position:'bottom'}},scales:type==='doughnut'||type==='pie'?{}:{y:{beginAtZero:true,ticks:{precision:0}}},...options}});}
+function update(){const rows=allRows.filter(r=>(!region.value||r.region===region.value)&&(!channel.value||r.channel===channel.value)&&(!source.value||r.lead_source===source.value)&&(!stage.value||r.stage===stage.value));
+const booked=rows.filter(r=>r.stage==='Order Booked'),lost=rows.filter(r=>r.stage==='Lost'),value=booked.reduce((s,r)=>s+(Number(r.order_value_inr)||0),0),open=rows.length-booked.length-lost.length;
+leads.textContent=rows.length;document.getElementById('booked').textContent=booked.length;conversion.textContent=pct(rows.length?booked.length/rows.length*100:0);document.getElementById('value').textContent=money(value);document.getElementById('lost').textContent=lost.length;lostRate.textContent=pct(rows.length?lost.length/rows.length*100:0);document.getElementById('open').textContent=open;average.textContent=money(booked.length?value/booked.length:0);
+const stages=['New Lead','Contacted','Qualified','Proposal Sent','Order Booked','Lost'];const sc=stages.map(s=>rows.filter(r=>r.stage===s).length);draw('stageChart','bar',stages,[{label:'Leads',data:sc,backgroundColor:'#3976b9'}]);
+const months=[...new Set(rows.map(r=>r.lead_date.slice(0,7)))].sort();draw('monthlyChart','line',months.map(m=>new Date(m+'-01').toLocaleDateString('en-IN',{month:'short',year:'2-digit'})),[{label:'Leads',data:months.map(m=>rows.filter(r=>r.lead_date.startsWith(m)).length),borderColor:'#0f766e',backgroundColor:'#0f766e',tension:.25}]);
+const channels=[...new Set(rows.map(r=>r.channel))].sort();draw('channelChart','bar',channels,[{label:'Leads',data:channels.map(c=>rows.filter(r=>r.channel===c).length),backgroundColor:'#6b8eaf'},{label:'Booked',data:channels.map(c=>rows.filter(r=>r.channel===c&&r.stage==='Order Booked').length),backgroundColor:'#0f766e'}]);
+const reasons=aggregate(lost,'lost_reason');draw('lossChart','doughnut',Object.keys(reasons),[{data:Object.values(reasons),backgroundColor:['#2563eb','#0f766e','#d97706','#9333ea','#64748b']}]);
+const regions=[...new Set(rows.map(r=>r.region))].sort();document.getElementById('regionTable').innerHTML=regions.map(reg=>{const rr=rows.filter(r=>r.region===reg),bb=rr.filter(r=>r.stage==='Order Booked'),vv=bb.reduce((s,r)=>s+(Number(r.order_value_inr)||0),0);return '<tr><td>'+reg+'</td><td>'+rr.length+'</td><td>'+bb.length+'</td><td>'+pct(rr.length?bb.length/rr.length*100:0)+'</td><td>'+money(vv)+'</td></tr>';}).join('');
+}
+fetch('../dataset/sales_leads_synthetic.csv').then(r=>{if(!r.ok)throw Error('Dataset could not be loaded');return r.text();}).then(csv=>{allRows=parseCSV(csv);['region','channel','source','stage'].forEach(id=>fillFilter(id,{region:'region',channel:'channel',source:'lead_source',stage:'stage'}[id]));['region','channel','source','stage'].forEach(id=>document.getElementById(id).addEventListener('change',update));update();}).catch(err=>{document.querySelector('main').insertAdjacentHTML('afterbegin','<div class="notice">Dashboard data could not be loaded. Open this page through GitHub Pages and check the dataset path. '+err.message+'</div>');});
+</script>
+</body></html>
