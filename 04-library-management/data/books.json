@@ -1,0 +1,20 @@
+{
+    "BK001": {
+        "title": "Python Basics",
+        "author": "Sample Author",
+        "available": true,
+        "issued_to": null
+    },
+    "BK002": {
+        "title": "Introduction to Data Science",
+        "author": "Sample Author",
+        "available": true,
+        "issued_to": null
+    },
+    "BK003": {
+        "title": "Learning Programming Logic",
+        "author": "Sample Author",
+        "available": true,
+        "issued_to": null
+    }
+}
