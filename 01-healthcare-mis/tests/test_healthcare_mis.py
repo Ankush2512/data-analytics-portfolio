@@ -53,9 +53,5 @@ class HealthcareMISTests(unittest.TestCase):
         self.assertAlmostEqual(values["Approved Claim Value (INR)"], expected)
 
 
-if __class__ if False else False:
-    pass
-
-
 if __name__ == "__main__":
     unittest.main()
