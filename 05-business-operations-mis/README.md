@@ -40,8 +40,13 @@ The script reads the CSV files from the project's `dataset` folder and creates a
 - A data validation report
 - PNG charts for department completion, task status and monthly volume
 
+## Automated verification
+GitHub Actions runs the reporting script and **7 automated tests** covering source-data validation, task-status reconciliation, completed/open task totals, SLA calculations, target and ageing definitions, workbook sheet names, and generated CSV/chart/workbook files. The latest successful run uploaded the generated outputs as a downloadable workflow artifact.
+
+[View successful Project 05 test run and download outputs](https://github.com/Ankush2512/data-analytics-portfolio/actions/runs/44582265697)
+
 ## Tools
 Python, pandas, matplotlib and openpyxl.
 
-## Current project status
-The source data and initial reporting script are committed. The generated outputs should be run and checked locally before being presented as verified deliverables. No claim is made here that the script or workbook has been independently executed or tested.
+## Project status
+The current script, synthetic source data, and automated tests have passed the GitHub Actions run linked above. The target comparison remains a demonstration based on a deliberately small synthetic task sample and should not be interpreted as real-world target performance.
