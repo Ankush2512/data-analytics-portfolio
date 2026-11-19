@@ -35,5 +35,10 @@ python 03-python-eda/scripts/clean_and_explore.py
 
 Outputs are written to `03-python-eda/output/`. The accompanying notebook provides an interactive learning version of the same workflow.
 
+## Automated verification
+GitHub Actions runs the script and **7 automated tests** covering duplicate removal, unique case IDs, category standardisation, preservation of missing numeric values, summary reconciliation, and output-file creation. The latest successful run also publishes the generated output folder as a downloadable workflow artifact.
+
+[View successful Project 03 test run](https://github.com/Ankush2512/data-analytics-portfolio/actions/runs/44582165422)
+
 ## Skills demonstrated
 Python, Pandas, NumPy, data profiling, missing-value analysis, duplicate handling, validation, aggregation, and Matplotlib.
