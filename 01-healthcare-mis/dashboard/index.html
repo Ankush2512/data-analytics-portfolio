@@ -40,7 +40,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;p
 <div class="card"><div class="label">Approved claim value</div><div class="value" id="approvedValue">—</div><small>INR</small></div>
 <div class="card"><div class="label">Query-raised cases</div><div class="value" id="queries">—</div><small>Cases flagged for query</small></div>
 <div class="card"><div class="label">Rejected cases</div><div class="value" id="rejected">—</div><small>Review rejection reasons offline</small></div>
-<div class="card"><div class="label">Pending over 15 days</div><div class="value" id="ageing">—</div><small>Ageing watchlist</small></div>
+<div class="card"><div class="label">Open cases over 15 days</div><div class="value" id="ageing">—</div><small>Ageing watchlist</small></div>
 </section>
 <section class="panels">
 <div class="panel"><h2>Case status distribution</h2><div class="chart-wrap"><canvas id="statusChart"></canvas></div></div>
@@ -48,7 +48,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;p
 <div class="panel"><h2>Department-wise cases</h2><div class="chart-wrap"><canvas id="deptChart"></canvas></div></div>
 <div class="panel"><h2>Pending-case ageing</h2><div class="chart-wrap"><canvas id="ageChart"></canvas></div></div>
 </section>
-<section class="panel" style="margin-top:16px"><h2>Department performance summary</h2><div style="overflow:auto"><table><thead><tr><th>Department</th><th>Total cases</th><th>Approved</th><th>Pending</th><th>Approval rate</th><th>Avg. closed TAT</th></tr></thead><tbody id="deptTable"></tbody></table></div></section>
+<section class="panel" style="margin-top:16px"><h2>Department performance summary</h2><div style="overflow:auto"><table><thead><tr><th>Department</th><th>Total cases</th><th>Approved</th><th>Pending</th><th>Query raised</th><th>Approval rate</th><th>Avg. closed TAT</th></tr></thead><tbody id="deptTable"></tbody></table></div></section>
 <div class="note"><b>Portfolio disclaimer:</b> This dashboard uses fictional synthetic data created for learning and demonstration. It does not represent actual hospital, patient, scheme, or employer performance. Average closed-case TAT excludes pending and query-raised cases.</div>
 </main>
 <script>
@@ -66,12 +66,12 @@ document.getElementById('total').textContent=total;document.getElementById('appr
 document.getElementById('pending').textContent=pending.length;document.getElementById('tat').textContent=avg.toFixed(1)+' days';
 document.getElementById('approvedValue').textContent=inr(approved.reduce((x,r)=>x+r.claim_amount_inr,0));
 document.getElementById('queries').textContent=queries.length;document.getElementById('rejected').textContent=rejected.length;
-document.getElementById('ageing').textContent=pending.filter(r=>r.days_in_process>15).length;
+document.getElementById('ageing').textContent=a.filter(r=>['Pending','Query Raised'].includes(r.case_status)&&r.days_in_process>15).length;
 const st=group(a,'case_status');chart('statusChart','doughnut',Object.keys(st),Object.values(st),'Cases');
 const months={};a.forEach(r=>{const m=r.admission_date.slice(0,7);months[m]=(months[m]||0)+1});const ml=Object.keys(months).sort();chart('monthlyChart','line',ml.map(m=>new Date(m+'-01').toLocaleString('en',{month:'short',year:'2-digit'})),ml.map(m=>months[m]),'Cases');
 const dp=group(a,'department');chart('deptChart','bar',Object.keys(dp),Object.values(dp),'Cases');
-const bins={'0–7 days':0,'8–15 days':0,'16–30 days':0,'31+ days':0};pending.forEach(r=>{const d=r.days_in_process;if(d<=7)bins['0–7 days']++;else if(d<=15)bins['8–15 days']++;else if(d<=30)bins['16–30 days']++;else bins['31+ days']++});chart('ageChart','bar',Object.keys(bins),Object.values(bins),'Pending cases');
-const tbody=document.getElementById('deptTable');tbody.innerHTML='';Object.keys(dp).sort().forEach(name=>{const x=a.filter(r=>r.department===name),ap=x.filter(r=>r.case_status==='Approved').length,pe=x.filter(r=>r.case_status==='Pending').length,cl=x.filter(r=>['Approved','Rejected'].includes(r.case_status)),t=cl.length?cl.reduce((s,r)=>s+r.days_in_process,0)/cl.length:0;const tr=document.createElement('tr');tr.innerHTML='<td>'+name+'</td><td>'+x.length+'</td><td>'+ap+'</td><td>'+pe+'</td><td>'+pct(x.length?ap/x.length:0)+'</td><td>'+t.toFixed(1)+' days</td>';tbody.appendChild(tr)});
+const bins={'0–7 days':0,'8–15 days':0,'16–30 days':0,'31+ days':0};a.filter(r=>['Pending','Query Raised'].includes(r.case_status)).forEach(r=>{const d=r.days_in_process;if(d<=7)bins['0–7 days']++;else if(d<=15)bins['8–15 days']++;else if(d<=30)bins['16–30 days']++;else bins['31+ days']++});chart('ageChart','bar',Object.keys(bins),Object.values(bins),'Pending cases');
+const tbody=document.getElementById('deptTable');tbody.innerHTML='';Object.keys(dp).sort().forEach(name=>{const x=a.filter(r=>r.department===name),ap=x.filter(r=>r.case_status==='Approved').length,pe=x.filter(r=>r.case_status==='Pending').length,qr=x.filter(r=>r.case_status==='Query Raised').length,cl=x.filter(r=>['Approved','Rejected'].includes(r.case_status)),t=cl.length?cl.reduce((s,r)=>s+r.days_in_process,0)/cl.length:0;const tr=document.createElement('tr');tr.innerHTML='<td>'+name+'</td><td>'+x.length+'</td><td>'+ap+'</td><td>'+pe+'</td><td>'+pct(x.length?ap/x.length:0)+'</td><td>'+t.toFixed(1)+' days</td>';tbody.appendChild(tr)});
 document.getElementById('status').textContent='Dataset loaded: '+rows.length+' synthetic records. Filters update all KPIs and charts.';
 }
 fetch(csvUrl).then(r=>{if(!r.ok)throw Error('Could not load CSV ('+r.status+')');return r.text()}).then(t=>{const parsed=Papa.parse(t,{header:true,skipEmptyLines:true});rows=parsed.data.map(r=>({...r,claim_amount_inr:Number(r.claim_amount_inr),days_in_process:Number(r.days_in_process)}));[...new Set(rows.map(r=>r.department))].sort().forEach(v=>document.getElementById('dept').add(new Option(v,v)));[...new Set(rows.map(r=>r.scheme))].sort().forEach(v=>document.getElementById('scheme').add(new Option(v,v)));render()}).catch(e=>{document.getElementById('status').textContent='Dashboard could not load data: '+e.message+'. Check the dataset URL and internet connection.'});
