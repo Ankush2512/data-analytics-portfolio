@@ -1,0 +1,30 @@
+name: Project 01 Healthcare MIS tests
+
+on:
+  push:
+    paths:
+      - "01-healthcare-mis/**"
+      - "requirements.txt"
+      - ".github/workflows/project01-tests.yml"
+  pull_request:
+    paths:
+      - "01-healthcare-mis/**"
+      - "requirements.txt"
+      - ".github/workflows/project01-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+      - name: Run healthcare MIS tests
+        run: python -m unittest discover -s 01-healthcare-mis/tests -v
+      - name: Build healthcare MIS reports
+        run: python 01-healthcare-mis/scripts/build_healthcare_mis.py
