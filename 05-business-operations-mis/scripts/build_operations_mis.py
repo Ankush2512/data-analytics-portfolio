@@ -118,7 +118,7 @@ def build_reports(tasks, targets):
             open_tasks=("is_open", "sum"),
             overdue_tasks=("task_status", lambda s: s.eq("Overdue").sum()),
             completed_sla_met=("is_sla_met", lambda s: s[tasks.loc[s.index, "is_completed"]].sum()),
-            completed_sla_breached=("sla_met", lambda s: s.astype(str).str.lower().eq("no").sum()),
+            completed_sla_breached=("sla_met", lambda s: (s.astype(str).str.lower().eq("no") & tasks.loc[s.index, "is_completed"]).sum()),
         )
         .merge(targets, on=["month", "department"], how="outer")
     )
@@ -129,12 +129,12 @@ def build_reports(tasks, targets):
     monthly_dept[numeric_cols] = monthly_dept[numeric_cols].fillna(0).astype(int)
     monthly_dept["target_achievement_pct"] = (
         monthly_dept["completed_tasks"].div(monthly_dept["monthly_target_tasks"].replace(0, pd.NA))
-        .mul(100).round(2)
+        .mul(100).astype("Float64").round(2)
     )
     sla_denominator = monthly_dept["completed_sla_met"] + monthly_dept["completed_sla_breached"]
     monthly_dept["sla_compliance_pct"] = (
         monthly_dept["completed_sla_met"].div(sla_denominator.replace(0, pd.NA))
-        .mul(100).round(2)
+        .mul(100).astype("Float64").round(2)
     )
 
     dept_summary = (
@@ -154,7 +154,7 @@ def build_reports(tasks, targets):
     dept_summary["target_achievement_pct"] = (
         dept_summary["completed_tasks"].div(
             dept_summary["monthly_target_tasks"].replace(0, pd.NA)
-        ).mul(100).round(2)
+        ).mul(100).astype("Float64").round(2)
     )
 
     status_summary = (
